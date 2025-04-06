@@ -6,7 +6,8 @@ function App() {
   const [number,setNumber]=useState(false)
   const [char,setChar]=useState(false)
   const [password,setPassword]=useState("")
-  
+//this is the fucntion for generating password
+
   const passwordGenerator=useCallback(()=>{
     let pass="";
     let string="ABCDEFGHIJKLMNOPQRSUTVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -25,12 +26,12 @@ function App() {
     setPassword(pass);
   },[length,number,char,setPassword])
   const passwordRef=useRef(null)
-
+//this is function for copying password 
   const copyPassword=useCallback(()=>{
     passwordRef.current?.select();
     window.navigator.clipboard.writeText(password)
   },[password])
-
+  //this is useeffect 
   useEffect(()=>{passwordGenerator()},[length,number,char,passwordGenerator])
   return (
     <>
